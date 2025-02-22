@@ -21,7 +21,7 @@ const getUsersById = async(req, res) => {
     }
 }
 
-// Función para recuperar crear un usuario
+// Función crear un usuario
 const createUser = async(req, res) => {
     try {
         const Usuario = await User.create( req.body );

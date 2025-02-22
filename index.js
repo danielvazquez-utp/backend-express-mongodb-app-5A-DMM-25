@@ -1,6 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
+// importando rutas de usuario
+const userRoute = require('./routes/user.route');
+
 const app = express();
 app.use( express.json() );
 
@@ -14,6 +17,9 @@ app.get('/', (req, res) => {
 // R - Recuperación -> get
 // U - update -> put
 // D - delete -> delete
+
+// Endpoints para colección de usuarios
+app.use('/api/users', userRoute);
 
 // Realizar petición de conexión a mongodb
 mongoose.connect('mongodb://localhost:27017/MyDatabase')
