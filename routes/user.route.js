@@ -5,18 +5,21 @@ const {
     getUsersById,
     createUser,
     updateUserById,
-    deleteUserById
+    deleteUserById,
+    getUsersByNickPass
 } = require('../controllers/user.controller');
 
 // Endpoint para la recuperación de la colección de usuarios
-router.get('/', getUsers);
+router.get('/all', getUsers);
 // Endopint para la recuperación de un usuario
-router.get('/:id', getUsersById);
+router.get('/byId/:id', getUsersById);
+// Endpoint para la recuperación de un usuario usando su nickname
+router.get('/byNick/:nickname', getUsersByNickPass);
 // Endpoint para la creación de un usuario
-router.post('/', createUser);
+router.post('/add', createUser);
 // Endpoint para la actualización de un usuario
-router.put('/:id', updateUserById);
+router.put('/update/:id', updateUserById);
 // Endpoint para la eliminación de un usuario
-router.delete('/:id', deleteUserById);
+router.delete('/delete/:id', deleteUserById);
 
 module.exports = router;

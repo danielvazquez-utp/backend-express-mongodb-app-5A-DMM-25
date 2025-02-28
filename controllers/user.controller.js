@@ -21,6 +21,17 @@ const getUsersById = async(req, res) => {
     }
 }
 
+// Función para recuperar un usuario usando su nickname
+const getUsersByNickPass = async(req, res) => {
+    try {
+        const { nickname } = req.params;
+        const Usuario = await User.find({'nickname': nickname});
+        res.status(200).json(Usuario);
+    } catch (error) {
+        res.status(500).json({ message: 'Ocurrio un error ' + error.message });
+    }
+}
+
 // Función crear un usuario
 const createUser = async(req, res) => {
     try {
@@ -65,4 +76,5 @@ module.exports = {
     createUser,
     updateUserById,
     deleteUserById,
+    getUsersByNickPass
 }

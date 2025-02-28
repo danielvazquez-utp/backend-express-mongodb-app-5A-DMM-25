@@ -1,11 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 // importando rutas de usuario
 const userRoute = require('./routes/user.route');
 
 const app = express();
 app.use( express.json() );
+app.use( cors() );
 
 // Ruta por defecto
 app.get('/', (req, res) => {
