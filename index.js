@@ -1,11 +1,16 @@
 const express = require('express');
 const mongoose = require('mongoose');
+// Importando librería CORS
+const cors = require('cors');
 
 // importando rutas de usuario
 const userRoute = require('./routes/user.route');
 
 const app = express();
-app.use( express.json() );
+// Agregando el parser JSON de express
+app.use(express.json());
+// Agregando el middleware de CORS para consumo de APIs en el mismo origen
+app.use(cors());
 
 // Ruta por defecto
 app.get('/', (req, res) => {
