@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const ItemSchema = mongoose.Schema({
     code: {
         type: String,
-        required: true
     },
     name: {
         type: String,
@@ -21,7 +20,7 @@ const ItemSchema = mongoose.Schema({
         required: true
     },
     location: {
-        type: Number,
+        type: String,
         required: true
     },
     registration: {
